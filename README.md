@@ -52,9 +52,31 @@ The project aims to answer the following questions:
   average order value than those with positive reviews (scores 4–5), suggesting that
   higher-value orders may be more prone to customer dissatisfaction.
 
-## Limitations
-- The dataset ends in September 2018, which impacts the interpretation of recent trends.
-- Extreme outliers in order value and delivery time influence aggregate metrics.
+## Data Quality & Cleaning
+
+Several data quality considerations were identified during the analysis:
+
+- The dataset ends in September 2018, resulting in incomplete data for the last month.
+  To avoid misleading conclusions, this partial month was excluded from time-series analyses.
+- Extreme outliers are present in order value and delivery time distributions.
+  These outliers were retained in the raw data but excluded from certain aggregate
+  analyses when appropriate (e.g. percentile-based filtering) to ensure robustness.
+- Customer review data required careful validation due to encoding issues during import,
+  which were resolved prior to analysis.
+
+  ## Limitations
+
+- The dataset is truncated and ends in September 2018, which impacts the interpretation
+  of recent trends.
+- Some analyses are sensitive to extreme outliers in order value and delivery time,
+  although results remain consistent after filtering.
+- The analysis is based on historical data and does not account for operational changes
+  that may have occurred since.
+
+
+No raw data was modified. All cleaning steps were applied at the analysis level
+and explicitly documented.
+
 
 ## Repository Structure
 project_sales_analysis/
